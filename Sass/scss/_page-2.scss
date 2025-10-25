@@ -1,0 +1,173 @@
+@use "mixins" as m;
+@use "config" as c;
+
+.page-2 {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    gap: 3rem;
+    margin-bottom: 12rem;
+
+    @media(width <  43.75rem) {
+        margin-bottom: 8rem;
+    }
+}
+
+.features-block {
+    @include m.description(false);
+    margin-bottom: 10rem;
+}
+
+
+// ===================== CAROUSEL ====================
+.carousel {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    gap: 4.1rem;
+    width: 100%;
+}
+
+
+
+
+.carousel-body {
+    display: flex;
+    width: 100%;
+
+    @media(width <  43.75rem) {
+        flex-direction: column;
+        gap: 8rem;
+    }
+}
+
+// ======================== LEFT SIDE ======================
+.carousel-left-side {
+    container-type: inline-size;
+    container-name: carousel-left-side;
+    position: relative;
+    width: 50%;
+    padding-left: 12vw;
+    display: flex;
+    align-items: start;
+
+    @media (width < 43.75rem) {
+        width: 100%;
+        justify-content: center;
+        flex-grow: 1;
+        padding-right: 9%;
+    }
+
+    &::before {
+        position: absolute;
+        top: 22cqi; 
+        left: 0;
+        height: 64cqi;
+        width: 100cqi;
+        clip-path: polygon(0 0, 96% 0, 100% 100%, 0% 100%);
+        content: "";
+        background-color: #3E5DFE;
+        border-end-end-radius: 12.5rem;
+
+        @container carousel-left-side (width < 43.75rem) {
+            height: 60cqi;
+            width: 94cqi;content: "";
+            background-color: #3E5DFE;
+            border-end-end-radius: 12.5rem;
+            border-start-end-radius: 25rem;
+        }
+    }
+}
+
+.carousel-image {
+    position: relative;
+    width: 100cqi;
+    aspect-ratio: 1.41/1.09;
+    object-fit: contain;
+
+    @media (width < 43.75rem) {
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        position: relative;
+    }
+}
+
+// ============ RIGHT SIDE ===============
+
+.carousel-right-side {
+    @include m.description(false);
+    container-type: inline-size;
+    container-name: carousel-right-side;
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    padding-left: 8cqi;
+    padding-right: 13cqi;
+
+    @media(width <  43.75rem) {
+        width: 100%;
+        padding: 0 9%;
+    }
+}
+
+
+// ===================== NAVIGATION =====================
+
+.carousel-nav {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+
+    @media(width <  43.75rem) {
+        flex-direction: column;
+        width: 80%;
+        max-width: 25rem;
+    }
+}
+
+
+.carousel-nav-button {
+    @include m.button;
+    position: relative;
+    flex-grow: 1;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-around;
+    box-sizing: border-box;
+    padding-bottom: 2.1rem;
+    cursor: pointer;
+    border-bottom: c.$grey-200 solid 0.063rem;
+    color: c.$grey-400;
+
+    @media(width <  43.75rem) {
+        padding: 1.6rem 0;
+    }
+
+    &:first-child {
+        @media(width <  43.75rem) {
+            border-top: c.$grey-200 solid 0.063rem;
+        } 
+    }
+
+    &.active {
+        color: c.$grey-900;
+    }
+
+    &.active::before {
+        position: absolute;
+        bottom: 0rem;
+        content: "";
+        height: 0.188rem;
+        width: 60%;
+        background-color: c.$ui-red;
+
+        @media(width <  43.75rem) {
+            width: 25%;
+        }
+    }
+
+    &:hover {
+        color: c.$ui-red;
+    }
+}

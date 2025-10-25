@@ -1,0 +1,78 @@
+@use "config" as c;
+@use "mixins" as m;
+@use "functions" as f;
+
+%button {
+    all: unset;
+    cursor: pointer;
+    text-decoration-line: none;
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    box-sizing: border-box;
+}
+
+.red-button {
+    @include m.ui-button(c.$padding-1, false, normal, c.$ui-red, white); 
+    font-weight: 600;
+}
+
+.red-button-with-shadow {
+    @include m.ui-button(c.$red-button-pad, true, small-caps, c.$ui-red, white);
+}
+
+.blue-button {
+    @include m.ui-button(c.$padding-1, true, normal, c.$ui-blue, white);
+}
+
+.grey-button {
+    @include m.ui-button(c.$padding-1, true, c.$grey-800, c.$white-hero-button);    
+    &:hover {
+        color: c.$grey-500;
+        box-shadow: f.set-button-inset(c.$grey-300);
+    }
+}
+
+.nav-button  {
+    @include m.nav-button(1rem, small-caps);
+}
+
+
+.burger-button {
+    display: none;
+    @media (width < 43.75rem) {
+        display: block;
+    }
+
+    &.hidden {
+        display: none;
+    }
+}
+
+.carousel-blue-button {
+    @include m.ui-button(c.$padding-1, true, normal, c.$ui-blue, white);
+    @media(width < 43.75rem){
+        display: none;
+    }
+}
+
+.extension-button {
+    @include m.ui-button(c.$extension-button-pad, true, normal, c.$ui-blue, white);
+    margin: 10cqi;
+    font-size: clamp(0.813rem, 5cqi, 0.938rem);
+
+    @container (width < 11.938rem) { 
+        font-size: 8cqi;
+        padding: 6cqi 15cqi;
+    }
+    
+    & .ettention-box-button-text span {
+        @container (width < 11.938rem) { 
+            display: none;
+        }
+    }    
+}

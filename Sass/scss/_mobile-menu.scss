@@ -1,0 +1,103 @@
+@use 'mixins' as m;
+
+.mobile-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(47, 52, 74, 0.9);
+    padding: 2rem;
+    padding-top: 3rem;
+    z-index: 2;
+    display: none;
+    left: 100%;
+    transition: left 0.5s;
+
+    @media (width < 43.75rem) {
+        display: flex;
+    }
+
+    &.menu-shown {
+        left: 0;
+        transition: left 0.5s;
+    } 
+}
+
+.mobile-menu-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-bottom: 4rem;
+    /* padding-bottom: clamp(2.5rem, 13.5vw, 4rem); */
+
+    & > img {
+        width: 10rem;
+        max-width: 12.5rem;
+        margin-right: auto;
+    }
+}
+
+.mobile-menu-close-btn {
+    @include m.button;
+    display: flex;
+    
+    & > img {
+        width: 1.2rem;
+        /* width: 4vw; */
+        max-width: 1.563rem;
+    } 
+}
+
+.mobile-menu-button-group {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    color: rgb(82, 66, 66);
+    font-variant: small-caps;
+    margin-bottom: auto;
+    gap: 3rem;
+}
+    
+.mobile-nav-btn {
+    @include m.nav-button(0, small-caps);
+    position: relative;
+    text-decoration: none;
+    font-weight: 400;
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-size: 1.4rem;
+
+    &:last-child {
+        padding: .5rem;
+        padding-bottom: .6rem;
+        border-radius: 0.313;
+        border: solid white 0.188rem;
+        
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.233);
+            color: rgb(49, 49, 49);
+            font-weight: 600;
+            outline: rgb(70, 70, 70) solid 0.188rem;
+        }
+    }
+
+    &::before {
+        position: absolute;
+        top: -1.438rem;
+        content: "";
+        width: 100%;
+        height: 0.063rem;
+        background-color: rgb(113, 119, 143);
+    }
+}
+
+.mobile-menu-social-media-button-group {
+    display: flex;
+    align-items: center;
+    gap: 8vw;
+}
+

@@ -1,0 +1,44 @@
+@use 'config' as c;
+@use 'mixins' as m;
+@use "buttons" as b;
+
+.top-nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding-left: 11%;    
+    padding-top: 2rem;
+    padding-right: 12vw;
+    padding-bottom: 5.9rem;
+}
+
+.top-nav-logo {
+    width: 9.375rem;;
+}
+
+.top-nav-buttons {
+    display: flex;
+    gap: 4vw;
+
+    @media (width < 43.75rem) {
+        display: none;
+    }
+}
+
+.inactive-grey {
+    color: c.$grey-700; 
+}
+
+.burger-button {
+    @include m.button;
+    display: none;
+
+    @media (width < 43.75rem) {
+        display: block;
+    }
+
+    &.hidden {
+        display: none;
+    }
+}

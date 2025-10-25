@@ -1,0 +1,125 @@
+@use 'config' as c;
+@use 'functions' as f;
+
+@mixin button {
+    all: unset;
+    cursor: pointer;
+    text-decoration-line: none;
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    box-sizing: border-box;
+}
+
+@mixin ui-button (
+        $padding: 0,
+        $with-shadow: false,
+        $font-variant: normal,
+        $bg: unset, 
+        $col: c.$grey-700, 
+        $radius: c.$button-radius, 
+        $size: 1rem, 
+        $weight: normal
+        
+    ) {
+    @include button;
+    padding: $padding;
+    background-color: $bg;
+    color: $col;
+    font-size: $size;
+    cursor: pointer;
+    border-radius: $radius;
+    text-decoration-line: none;
+    font-weight: $weight;
+    font-variant: $font-variant;
+    transition: background-color 0.3s;
+
+    @if($with-shadow == true){
+        box-shadow: c.$button-shadow;
+    }
+
+    &:hover {
+        background-color: white;
+        color: $bg;
+        transition: background-color 0.3s;
+        @if($with-shadow == true){
+            box-shadow: c.$button-shadow, f.set-button-inset($bg);   
+        }
+        box-shadow: f.set-button-inset($bg);   
+    }
+}
+
+@mixin nav-button($size: 1rem, $caps: normal) {
+    @include button;
+    font-size: $size;
+    font-variant: $caps;
+
+    &:hover {
+        color: c.$ui-red;
+    }
+}
+
+@mixin description($isHero) {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    gap: 1.5rem;
+    width: 34.5%;
+    line-height: 1.5;
+
+    
+    @media (width < 53.125rem) {
+        width: 60%;
+    }
+
+    @media (width < 28.125rem) {
+        width: 90%;
+    }
+
+    > :first-child {
+        color: c.$grey-700;
+        font-weight: 500;
+        
+        @if($isHero == true){
+            font-size: 3.0rem;
+            line-height: 1.2;
+            @media (width <  43.75rem){
+                padding: 0 9%;
+                font-size: clamp(1.5rem, 7vw, 2.7rem) 
+            }
+        }
+        @else {            
+            font-size: 1.98rem;
+            line-height: 1.2;
+            @media (width < 43.75rem) {
+                padding: 0 9%;
+                font-size: clamp(1.5rem, 5.3vw, 2.7rem);
+            }
+        }
+        
+    }
+    
+    > :nth-child(2) {
+        width: 90%;        
+        font-size: 1.2rem;
+        line-height: 1.6;
+        color: c.$grey-300;
+        @media (width <  43.75rem){
+            padding: 0 9%;
+            font-size: clamp(1rem, 3.6vw, 1.3rem);
+        }
+    }
+
+    > .button-group {
+        display: flex;
+        gap: 1rem;
+    }
+
+    &.center {
+        text-align: center;
+    }
+}

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="css/style.css">
+    <header id="header">
+        <nav id="mobile-menu" class="mobile-menu">
+            <div class="mobile-menu-header">
+                <img src="resources\logo-bookmark-mobile.svg" alt="bookmark logo">
+                <button id="mobile-menu-close-btn" class="mobile-menu-close-btn" aria-label="Close menu">
+                    <img src="resources\icon-close.svg" alt="" aria-hidden="true"/>
+                </button>
+            </div>
+            <div class="mobile-menu-button-group">
+                <a href="#" class="mobile-nav-btn">features</a>
+                <a href="#" class="mobile-nav-btn">pricing</a>
+                <a href="#" class="mobile-nav-btn">contact</a>
+                <a href="#" class="mobile-nav-btn">login</a>
+            </div>
+            <div class="mobile-menu-social-media-button-group">
+                <a href="#" class="icon-link" aria-label="facebook">
+                    <img src="resources\icon-facebook.svg" alt="" aria-hidden="true"/>
+                </a>
+                <a href="#" class="icon-link" aria-label="twitter">
+                    <img src="resources\icon-twitter.svg" alt="" aria-hidden="true"/>
+                </a>
+            </div>
+        </nav>
+        <nav id="top-nav-bar" class="top-nav-bar">
+            <img id="top-nav-logo" class="top-nav-logo" src="resources\logo-bookmark.svg" alt="bookmark logo">
+            <div id="top-nav-buttons" class="top-nav-buttons">
+                <a href="#" class="nav-button"id="top-nav-feature-btn">features</a>
+                <a href="#" class="nav-button"id="top-nav-pricing-btn">pricing</a>
+                <a href="#" class="nav-button"id="top-nav-contacts-btn">contact</a>
+                <a href="#" class="red-button-with-shadow padding-2" id="top-nav-login-btn">login</a>
+            </div>
+            <button id="burger-button" class="burger-button" type="" aria-label="open menu">
+                <img src="resources\icon-hamburger.svg" alt="" aria-hidden="true">
+            </button>
+        </nav>
+    </header>
+
+    <main id="main">
+        <section class="page-1">
+            <div class="hero-left-side" class="description">
+                <h1 class="hero-title" >A Simple Bookmark Manager</h1>
+                <p class="hero-body">A clean and simple interface to orgainze your favourite websites. Open a new browser tab and see your sites load instantly. Try it for free.</p>
+                <div class="hero-button-group">
+                    <a id="hero-get-chrome-btn" class="blue-button"id="hero-button-left" type="button">Get it on Chrome</a>
+                    <a id="hero-get-firefox-btn" class="grey-button"id="hero-button-right" type="button">Get it on Firefox</a>
+                </div>
+            </div>
+            <div class="hero-right-side">
+                <figure class="hero-image-container">
+                    <img src="resources\illustration-hero.svg" alt="bookmark manager image">
+                </figure>
+            </div>
+        </section>
+        
+        <section class="page-2">
+            <div class="features-block">
+                <h2>Features</h2>
+                <p>Our aim is to make it quick and easy for you to access your favourite websites. Your bookmarks sync between your devices so you can access them on the go.</p>
+            </div>
+
+            <div class="carousel">
+                <nav class="carousel-nav" aria-label="Feature tabs">
+                    <button id="carousel-bookmarking-btn" class="carousel-nav-button active" type="button">Simple Bookmarking</button>
+                    <button id="carousel-searching-btn" class="carousel-nav-button" type="button">Speedy Searching</button>
+                    <button id="carousel-sharing-btn" class="carousel-nav-button" type="button">Easy Sharing</button>
+                </nav>
+                <div class="carousel-body" class="presentation-block">
+                    <figure class="carousel-left-side">
+                        <img id="carousel-image" class="carousel-image" src="resources\illustration-features-tab-1.svg" alt="the immage of the bookmark manager's interface">
+                    </figure>
+                    <div class="carousel-right-side" class="description">
+                        <h3 id="carousel-desc-title" class="carousel-desc-title">Bookmark in one click</h3>
+                        <p id="carousel-desc-body" class="carousel-desc-body">Organize your bookmarks however you like. Our simple drag-and-drop interfacegives you complete control over how you manage your favourite sites.</p>
+                        <div class="button-group">
+                            <a class="carousel-blue-button" id="carousel-button-right" type="">More Info</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="page-3">
+            <div class="extensions-description">
+                <h2>Download the extensions</h2>
+                <p>We've got more browsers in the pipeline. Please do let us know if you've got a favourite you'd like to prioritize.</p>
+            </div>
+            <div class="extensions">
+                <article id="crome-extension" class="extension-box">
+                    <div class="description-box">
+                        <img src="resources\logo-chrome.svg" alt="chrome browser icon">
+                        <h3>Add to Chrome</h3>
+                        <p>Minimum version 62</p>
+                    </div>
+                    <img class="dotted-line" src="resources\bg-dots.svg" alt="" aria-hidden="true">
+                    <a id="extension-chrome-button" href="#" class="extension-button"><span class="ettention-box-button-text">Add<span>&nbsp;& Install extension</span></span></a>
+                </article>
+
+                <article id="firefox-extension" class="extension-box">
+                    <div class="description-box">
+                        <img src="resources\logo-firefox.svg" alt="fire fox browser icon">
+                        <h3>Add to FireFox</h3>
+                        <p>Minimum version 46</p>
+                    </div>
+                    <img class="dotted-line" src="resources\bg-dots.svg" alt="" aria-hidden="true">
+                    <a id="extension-firefox-button" href="#" class="extension-button"><span class="ettention-box-button-text">Add<span>&nbsp;& Install extension</span></span></a>
+                </article>
+
+                <article id="opera-extension" class="extension-box">
+                    <div class="description-box">
+                        <img src="resources\logo-opera.svg" alt="opera browser icon">
+                        <h3>Add to Opera</h3>
+                        <p>Minimum version 46</p>
+                    </div>
+                    <img class="dotted-line" src="resources\bg-dots.svg" alt="" aria-hidden="true">
+                    <a id="extension-opera-button" href="#" class="extension-button"><span class="ettention-box-button-text">Add<span>&nbsp;& Install extension</span></span></a>
+                </article>
+
+            </article>
+        </section>
+        <section class="page-4">
+            <div class="faq-desc">
+                <h2>Frequently Asked Questions</h2>
+                <p>Here are some of our FAQs. If you have any other questions you'd like answered please feel free to email us.</p>
+            </div>
+            <div class="questions-block">
+                <details id="question-1" class="faq-question">
+                    <summary class="active-red">
+                        <span>What is Bookmark?</span>
+                        <img src="resources\icon-arrow.svg" alt="" aria-hidden="true">
+                    </summary class="active-red">
+                    <div class="answer">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto ullam quam alias perferendis. Voluptate provident, placeat totam ut recusandae, tempore in fugit molestias alias mollitia sequi odio repudiandae culpa enim?
+                    </div>
+                </details>
+                <details id="question-2" class="faq-question">
+                    <summary class="active-red">
+                        <span>How can I request a new browser?</span>
+                        <img src="resources\icon-arrow.svg" alt="" aria-hidden="true">
+                    </summary class="active-red">
+                    <div class="answer">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto ullam quam alias perferendis. Voluptate provident, placeat totam ut recusandae, tempore in fugit molestias alias mollitia sequi odio repudiandae culpa enim?
+                    </div>
+                </details>
+                <details id="question-3" class="faq-question">
+                    <summary class="active-red">
+                        <span>Is there a mobile app?</span>
+                        <img src="resources\icon-arrow.svg" alt="" aria-hidden="true">
+                    </summary class="active-red">
+                    <div class="answer">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto ullam quam alias perferendis. Voluptate provident, placeat totam ut recusandae, tempore in fugit molestias alias mollitia sequi odio repudiandae culpa enim?
+                    </div>
+                </details>
+                <details id="question-4" class="faq-question">
+                    <summary class="active-red">
+                        <span>What about other Chromium Browsers?</span>
+                        <img src="resources\icon-arrow.svg" alt="" aria-hidden="true">
+                    </summary class="active-red">
+                    <div class="answer">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto ullam quam alias perferendis. Voluptate provident, placeat totam ut recusandae, tempore in fugit molestias alias mollitia sequi odio repudiandae culpa enim?
+                    </div>
+                </details>
+            </div>
+            <a id="faq-more-info-button" href="#" class="blue-button">More Info</a>
+        </section>
+
+        <section>
+            <div class="call-to-action">
+                <div class="call-to-action-content">
+                    <p><strong>35,000+ ALREADY JOINED</strong></p>
+                    <h2>Stay up-to-date with what we're doing</h2>
+                    <form class="contact-form" method="post">
+                        <div class="contact-input-block">
+                            <input class="contact-input" type="email" placeholder="Enter your email address">
+                            <p class="error-msg">Whoops, make sure it's an email</p>
+                            <img class="error-icon" src="resources\icon-error.svg" alt="" aria-hidden="true">
+                        </div>
+                        <button id='contact-submit-button' class="contact-submit-button red-button" type="submit">Contact us</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <nav class="footer-nav">
+                <img class="footer-logo" src="resources\header-logo.png" alt="bookmark logo"/>
+                <div class="footer-button-group">
+                    <div class="footer-nav-buttons">
+                        <a href="#" class=" nav-button active-red" id="footer-nav-feature-btn">features</a>
+                        <a href="#" class=" nav-button active-red" id="footer-nav-pricing-btn">pricing</a>
+                        <a href="#" class=" nav-button active-red" id="footer-nav-contacts-btn">contact</a>
+                    </div>
+                    <div class="footer-social-media-buttons">
+                        <a class="icon-link" href="#" aria-label="Facebook">
+                            <img src="resources/icon-facebook.svg" alt="" aria-hidden="true">
+                        </a>
+                        <a class="icon-link" href="#" aria-label="Facebook">
+                            <img src="resources/icon-twitter.svg" alt="" aria-hidden="true">
+                        </a>
+                    </div>
+                </div>
+            </nav>    
+        </footer>
+    </main>
+    <script src="js/carousel.js"></script>
+    <script src="js/burger-menu.js"></script>
+</body>
+</html>
+

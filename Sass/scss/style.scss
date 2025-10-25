@@ -1,0 +1,39 @@
+@use 'buttons';
+@use 'config';
+@use 'font';
+@use 'top-nav-bar';
+@use 'page-1';
+@use 'page-2';
+@use 'page-3';
+@use 'page-4';
+@use 'call-to-action';
+@use 'footer';
+@use 'mobile-menu';
+
+* {
+    padding: 0rem;
+    margin: 0rem;
+    font-family: "Rubik";
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+}
+
+#main {
+    display: flex;
+    flex-flow: column;
+}
+
+body {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    justify-content: center;
+}
+
+img {
+    -webkit-user-select: none;
+    user-select: none;
+}
