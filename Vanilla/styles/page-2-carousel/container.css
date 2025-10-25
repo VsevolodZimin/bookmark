@@ -1,0 +1,11 @@
+#page-2 {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    gap: 3rem;
+    margin-bottom: 12rem;
+
+    @media(width <  43.75rem) {
+        margin-bottom: 8rem;
+    }
+}

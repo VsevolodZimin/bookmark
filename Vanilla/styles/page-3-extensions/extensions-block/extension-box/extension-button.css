@@ -1,0 +1,16 @@
+.extension-box > .button {
+    margin: 10cqi;
+    padding: 6cqi 9cqi;
+    font-size: clamp(0.813rem, 5cqi, 0.938rem);
+
+    @container (width < 11.938rem) { 
+        font-size: 8cqi;
+        padding: 6cqi 15cqi;
+    }
+    
+    & .ettention-box-button-text span {
+        @container (width < 11.938rem) { 
+            display: none;
+        }
+    }    
+}

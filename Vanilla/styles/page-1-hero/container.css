@@ -1,0 +1,17 @@
+#page-1 {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10rem;
+    width: 100%;
+
+    @media (width <  43.75rem) {
+        flex-direction: column;
+        margin-bottom: 10rem;
+        width: 100%;
+        padding-left: 0;
+    }
+}
+
+
+
+

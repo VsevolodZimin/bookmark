@@ -1,0 +1,17 @@
+#error-msg {
+    display: none;
+    position: relative;
+    width: 100%;
+    font-style: italic;
+    background-color: var(--ui-red);
+    z-index: 0;
+    padding-left: 1.25rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.5rem;
+    border-end-end-radius: var(--button-radius);
+    border-end-start-radius: var(--button-radius);
+    color: white;
+    @media (width < 43.75rem) {
+        font-size: clamp(0.7rem, 3vw, 1rem);
+    }
+}

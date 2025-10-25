@@ -1,0 +1,48 @@
+#contact-input {
+    position: relative;
+    width: 100%;
+    border-radius: var(--button-radius);
+    border: none;
+    padding: 0.938rem 0.875rem;
+    padding-right: p2.188x;
+    flex-grow: 1;
+    font-size: 1.1rem;
+    z-index: 1;
+    transition: box-shadow 0.3s;
+
+
+    @media (width < 43.75rem) {
+        font-size: clamp(0.7rem, 3vw, 1rem);
+        padding: clamp(0.594rem, 4vw, 1.1rem);
+    }
+
+    &:hover {
+        outline: none;
+        box-shadow: inset 0 0 0.188rem 0.188rem rgb(181, 165, 250);
+        transition: box-shadow 0.3s;
+    }
+
+    &:invalid {
+        box-shadow: inset 0 0 0 0.188rem var(--ui-red);
+        border-end-end-radius: 0;
+        border-end-start-radius: 0;
+    }
+
+    &:invalid ~ #error-msg  {
+        display: flex;
+        align-items: center;
+    }
+
+    &:invalid ~ #error-icon {
+    visibility: visible;
+    }
+
+    &::placeholder { 
+        font-size: 1rem;
+        color: var(--grey-400);
+
+        @media (width < 43.75rem) {
+            font-size: clamp(0.7rem, 3vw, 2rem);
+        }
+    }
+}

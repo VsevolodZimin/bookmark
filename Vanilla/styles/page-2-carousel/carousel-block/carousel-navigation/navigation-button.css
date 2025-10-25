@@ -1,0 +1,40 @@
+.carousel-nav-button {
+    all: unset;
+    position: relative;
+    flex-grow: 1;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-around;
+    box-sizing: border-box;
+    padding-bottom: 2.1rem;
+    cursor: pointer;
+    border-bottom: var(--grey-200) solid 0.063rem;
+    color: var(--grey-400);
+
+    @media(width <  43.75rem) {
+        padding: 1.6rem 0;
+    }
+
+    &:first-child {
+        @media(width <  43.75rem) {
+            border-top: var(--grey-200) solid 0.063rem;
+        } 
+    }
+
+    &.active {
+        color: var(--grey-900);
+    }
+
+    &.active::before {
+        position: absolute;
+        bottom: 0rem;
+        content: "";
+        height: 0.188rem;
+        width: 60%;
+        background-color: var(--ui-red);
+
+        @media(width <  43.75rem) {
+            width: 25%;
+        }
+    }
+}

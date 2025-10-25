@@ -1,0 +1,9 @@
+#footer-logo {
+    display: flex;
+    width: 8.75rem;
+
+    @media(width <  43.75rem) {
+        width: 10rem;
+        padding-top: 1.5rem;
+    }
+}

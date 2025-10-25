@@ -1,0 +1,9 @@
+#carousel-body {
+    display: flex;
+    width: 100%;
+
+    @media(width <  43.75rem) {
+        flex-direction: column;
+        gap: 8rem;
+    }
+}

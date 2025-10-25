@@ -1,0 +1,13 @@
+#contact-submit-button {
+    padding-top: 1rem ;
+    align-self: self-start;
+    padding-bottom: 1rem ;
+    
+    @media (width < 43.75rem) {
+        align-self: stretch;
+        justify-content: center;
+        font-size: clamp(0.8rem, 3vw, 1rem);
+        display: flex;
+        padding: clamp(0.594rem, 4vw, 1.1rem);
+    }
+}

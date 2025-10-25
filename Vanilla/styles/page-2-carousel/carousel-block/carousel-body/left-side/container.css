@@ -1,0 +1,36 @@
+#carousel-left-side {
+    container-type: inline-size;
+    container-name: carousel-left-side;
+    position: relative;
+    width: 50%;
+    padding-left: 12vw;
+    display: flex;
+    align-items: start;
+
+    @media (width < 43.75rem) {
+        width: 100%;
+        justify-content: center;
+        flex-grow: 1;
+        padding-right: 9%;
+    }
+
+    &::before {
+        position: absolute;
+        top: 22cqi; 
+        left: 0;
+        height: 64cqi;
+        width: 100cqi;
+        clip-path: polygon(0 0, 96% 0, 100% 100%, 0% 100%);
+        content: "";
+        background-color: #3E5DFE;
+        border-end-end-radius: 12.5rem;
+
+        @container carousel-left-side (width < 43.75rem) {
+            height: 60cqi;
+            width: 94cqi;content: "";
+            background-color: #3E5DFE;
+            border-end-end-radius: 12.5rem;
+            border-start-end-radius: 25rem;
+        }
+    }
+}

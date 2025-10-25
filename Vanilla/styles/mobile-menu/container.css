@@ -1,0 +1,25 @@
+#mobile-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(47, 52, 74, 0.9);
+    padding: 2rem;
+    padding-top: 3rem;
+    z-index: 2;
+    display: none;
+    left: 100%;
+    transition: left 0.5s;
+
+    @media (width < 43.75rem) {
+        display: flex;
+    }
+
+    &.menu-shown {
+        left: 0;
+        transition: left 0.5s;
+    }
+}

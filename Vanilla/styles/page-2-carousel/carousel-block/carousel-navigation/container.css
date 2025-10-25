@@ -1,0 +1,11 @@
+#carousel-nav {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+
+    @media(width <  43.75rem) {
+        flex-direction: column;
+        width: 80%;
+        max-width: 25rem;
+    }
+}

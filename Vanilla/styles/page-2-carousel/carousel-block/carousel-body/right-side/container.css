@@ -1,0 +1,14 @@
+#carousel-right-side {
+    container-type: inline-size;
+    container-name: carousel-right-side;
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    padding-left: 8cqi;
+    padding-right: 13cqi;
+
+    @media(width <  43.75rem) {
+        width: 100%;
+        padding: 0 9%;
+    }
+}

@@ -1,0 +1,7 @@
+#carousel {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    gap: 4.1rem;
+    width: 100%;
+}

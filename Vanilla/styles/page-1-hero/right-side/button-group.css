@@ -1,0 +1,14 @@
+#hero-button-group {
+    display: flex;
+    justify-content: start;
+    width: 100%;
+
+    @media (width < 43.75rem) {
+        justify-content: center;
+    }
+
+    & .button {
+        font-size: clamp(0.8rem, 2.8vw, 1.1rem);
+        padding: 2.5cqi 5cqi;
+    }
+}

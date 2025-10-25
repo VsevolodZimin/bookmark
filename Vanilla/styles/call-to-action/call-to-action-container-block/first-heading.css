@@ -1,0 +1,11 @@
+#call-to-action-content > :first-child {
+    font-variant: small-caps;
+    letter-spacing: 0.375rem;
+    font-weight: 500;
+    color: white;   
+    font-size: 1.1rem;
+
+    @container call-to-action-content (width < 43.75rem) {
+        font-size: clamp(0.42rem, 3.17cqi, 1.1rem);
+    }
+}

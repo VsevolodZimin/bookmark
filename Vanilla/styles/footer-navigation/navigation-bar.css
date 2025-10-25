@@ -1,0 +1,14 @@
+#footer-nav {
+    container-type: inline-size;
+    display: flex;
+    background-color: var(--footer-nav);
+    width: 100%;
+    padding: 2rem 10vw;
+    gap: 4vw;
+
+    @media(width <  43.75rem) {
+        flex-flow: column;
+        align-items: center;
+        gap: 3rem;
+    }
+}

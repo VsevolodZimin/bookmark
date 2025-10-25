@@ -1,0 +1,7 @@
+#hero-title {
+    font-size: 3.0rem;
+    @media (width <  43.75rem){
+        padding: 0 9%;
+        font-size: clamp(1.5rem, 7vw, 2.7rem) 
+    }
+}

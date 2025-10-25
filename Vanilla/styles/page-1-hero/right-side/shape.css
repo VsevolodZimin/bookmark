@@ -1,0 +1,25 @@
+#hero-image-container::before {
+    top: 10vw;
+    right: 0vw;
+    height: 24vw;
+    width: 35vw;
+    content: "";
+    position: absolute;
+    background-color: #3E5DFE;
+    border-end-start-radius: 29%;
+    
+    @media (width <= 43.75rem) {
+        height: 47vw;
+        max-height: 15rem;
+        width: 76.8vw;
+    }
+
+    @media (width < 31.25rem) {
+        top: 15.5vw;
+
+    };
+
+    @media (31.25rem <= width < 43.75rem) {    
+        top: 4.838rem; 
+    }
+}

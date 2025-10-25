@@ -1,0 +1,11 @@
+#burger-button {
+    display: none;
+
+    @media (width < 43.75rem) {
+        display: block;
+    }
+
+    &.hidden {
+        display: none;
+    }
+}

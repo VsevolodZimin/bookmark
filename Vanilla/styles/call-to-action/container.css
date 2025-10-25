@@ -1,0 +1,14 @@
+#call-to-action {
+    container-type: inline-size;
+    container-name: call-to-action-block;
+    display: flex;
+    background-color: var(--ui-blue);
+    padding: 4rem 0;
+    width: 100%;
+    justify-content: center;
+    
+    @media (width < 43.75rem) {
+        padding: 4rem 8vw;
+    }
+}
+

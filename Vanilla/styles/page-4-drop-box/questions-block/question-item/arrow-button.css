@@ -1,0 +1,5 @@
+.faq-question[open] summary img {
+    filter: brightness(0) saturate(100%) invert(69%) sepia(20%) saturate(5468%) hue-rotate(314deg) brightness(88%) contrast(111%);
+    transform: rotate(180deg);
+    transition: transform 0.2s;
+}

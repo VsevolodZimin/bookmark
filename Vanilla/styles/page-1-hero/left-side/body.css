@@ -1,0 +1,7 @@
+#hero-body {
+    width: 90%;
+    @media (width <  43.75rem){
+        padding: 0 9%;
+        font-size: clamp(1rem, 3.6vw, 1.3rem);
+    }
+}

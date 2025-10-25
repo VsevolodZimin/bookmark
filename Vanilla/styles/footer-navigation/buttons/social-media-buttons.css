@@ -1,0 +1,23 @@
+#footer-social-media-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2cqi;
+
+    @media(width <  43.75rem) {
+        justify-content: center;
+        gap: 9cqi;
+        padding-bottom: 1.7rem;
+    }
+}
+
+.footer-icon-link {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    margin: 0 0.313rem;
+
+    &:hover {
+        filter: brightness(0) saturate(100%) invert(40%) sepia(36%) saturate(1182%) hue-rotate(316deg) brightness(112%) contrast(94%);
+    }
+}

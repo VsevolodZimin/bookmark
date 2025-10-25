@@ -1,0 +1,18 @@
+#questions-block {
+    container-type: inline-size;
+    container-name: questions-block;
+    display: flex;
+    flex-flow: column;
+    width: 40%;
+
+
+
+    @media(width < 53.125rem) {
+        width: 80%;
+        padding: 0 9%;
+    }
+    
+    @media(width < 34.375rem) {
+        width: 100%;
+    }
+}
