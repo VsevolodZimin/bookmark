@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" class="w-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/src/styles.css">
+</head>
+<body class="flex flex-col w-full justify-center">
+
+    <header id="header">
+        <nav id="mobile-menu" class="fixed top-0 left-full w-full h-screen bg-backdrop p-8 pt-12 z-2 hidden max-[43.75rem]:flex flex-col items-center transition-[left] duration-500 [&.menu-shown]:left-0">
+            <div id="mobile-menu-header" class="w-full flex items-center pb-16">
+                <img class="select-none mr-auto" src="resources\logo-bookmark-mobile.svg" alt="bookmark logo">
+                <button id="mobile-menu-close-btn" class="button" aria-label="Close menu">
+                    <img class="select-none mr-auto w-[1.2rem] max-wp-[1.563rem]" src="resources\icon-close.svg" alt="" aria-hidden="true"/>
+                </button>
+            </div>
+            <div id="mobile-menu-button-group" class="w-[90%] flex flex-col text-[rgb(82,66,66)] [font-variant:small-caps] mb-auto gap-12">
+                
+                <a href="#" class="mobile-menu-link hover:text-ui-red">features</a>
+                <a href="#" class="mobile-menu-link hover:text-ui-red">pricing</a>
+                <a href="#" class="mobile-menu-link hover:text-ui-red">contact</a>
+                <a href="#" class="mobile-menu-link border-[0.188rem] border-white p-2 rounded-[0.313rem] hover:bg-[rgba(255,255,255,0.233)] hover:text-[rgb(49,49,49)] hover:font-semibold hover:outline-[rgb(70,70,70)] hover:outline-[0.188rem]">login</a>
+            </div>
+            
+            <!-- This is curious...the links on the mobile menu are not painting red on hover.
+                Why is this happening? 
+                If you go to "DevTools => Sources tab => styles.css" you will see that Tailwind compiles everything to CSS classes that can be groupped as follows:
+                    - @layer base classes;
+                    - @layer components classes; 
+                    - @layer utilities classes; 
+                    - Unlayered classes.
+
+                What is a layer?
+
+                In CSS the @layer directive adds an additional step in cascade ordering. 
+
+                Let's imagine we have two styles with conflicting properties:
+
+                .element {
+                    color: blue;
+                }
+
+                #element-2 {
+                    color: red;
+                }
+
+                Clearly, the color from #element-2 will be applied, as #element-2 selector has higher specificit: (1, 0, 0) beats (0, 2, 0).
+                
+                We can easily change that by using layering:
+
+                    @layer ultra-low, super-low, low, medium, high, super-high, ultra-high;
+
+                The line above creates 7 layers. Names of the layers don't really mater, what does matter is their declaration order (the layer declared first has the lowest priority, while the last one - the highest).
+
+                N.B! Unlayered styles (i.e. those sitting outside any layers) take precedence over layered ones (https://www.w3.org/TR/css-cascade-5/#layering);
+
+                Now if we wrap #element-2 in "low" and .element in "high", the blue colour will be applied instead even though it has a lower speciicity (try it out yourself: https://jsfiddle.net/a24z503e/8/)
+
+                Tailwind does the same thing: it wraps all its classes in 3 layers: "base", "components" and "utilities". When I created my "mobile-menu-link" class, I didn't associate it with any layer, 
+                so no matter its specificity it's rules will always have the highest priority, which goes against Tailwind's "utilities first" philosophy.
+        -->
+            <div id="mobile-menu-social-media-button-group" class="flex items-center gap-[8vw]">
+                <a href="#" aria-label="facebook">
+                    <img class="select-none icon-highlight" src="resources\icon-facebook.svg" alt="" aria-hidden="true"/>
+                </a>
+                <a href="#" aria-label="twitter">
+                    <img class="select-none icon-highlight" src="resources\icon-twitter.svg" alt="" aria-hidden="true"/>
+                </a>
+            </div>
+        </nav>
+            
+        <nav id="top-nav-bar" class="flex items-center justify-between w-full pl-[11%] pt-8 pr-[12vw] pb-[5.9rem]">
+            <img id="top-nav-logo" src="resources\logo-bookmark.svg" alt="bookmark logo" class="w-37.5">
+            <div id="top-nav-buttons" class="flex gap-[4vw] max-[43.75rem]:hidden">
+                <a href="#" class="button text-lg [font-variant:small-caps] hover:text-ui-red text-grey-700" id="top-nav-feature-btn">features</a>
+                <a href="#" class="button text-lg [font-variant:small-caps] hover:text-ui-red text-grey-700" id="top-nav-pricing-btn">pricing</a>
+                <a href="#" class="button text-lg [font-variant:small-caps] hover:text-ui-red text-grey-700" id="top-nav-contacts-btn">contact</a>
+                <a href="#" class="button text-lg [font-variant:small-caps] hover:text-ui-red hover:shadow-red-outline-with-shdw text-ui-white shadow-red-btn-shdw bg-ui-red hover:bg-white hover: py-2.5 p-6" id="top-nav-login-btn">login</a>
+            </div>
+            <button class="min-[43.75rem]:hidden hidden max-[43.75rem]:block" id="burger-button" type="button" aria-label="open menu">
+                <img class="select-none cursor-pointer" src="resources\icon-hamburger.svg" alt="" aria-hidden="true">
+            </button>
+        </nav>
+    </header>
+
+    <main id="main" class="flex flex-col">
+        <section id="page-1" class="flex justify-around mb-40 w-full max-[43.75rem]:flex-col max-[43.75rem]:mb-40 max-[43.75rem]:w-full max-[43.75rem]:pl-0">
+            <div id="hero-left-side" class="@container flex flex-col justify-center bg-center gap-8 grow pl-[10%] w-[37vw] leading-normal max-[28.125rem]:w-[90%] max-[43.75rem]:w-full max-[43.75rem]:order-2 max-[43.75rem]:text-center max-[43.75rem]:items-center max-[43.75rem]:px-[5%]">              
+                <h1 class="text-grey-900 text-[3rem] font-semibold px-0 max-[43.75rem]:px-[9%] max-[43.75rem]:text-[clamp(1.5rem,7vw,2.7rem)]" id="hero-title">A Simple Bookmark Manager</h1>
+                <p class="w-[90%] max-[43.75rem]:px-[9%] max-[43.75rem]:text-[clamp(1rem,3.6vw,1.3rem)] text-[1.2rem] leading-[1.6] text-grey-300" id="hero-body">A clean and simple interface to orgainze your favourite websites. Open a new browser tab and see your sites load instantly. Try it for free.</p>
+                <div id="hero-button-group" class="flex justify-start gap-4 w-full max-[43.75rem]:justify-center">
+                    <a id="hero-get-chrome-btn" class="button text-[clamp(0.8rem, 2.8vw, 1.1rem)] px-[5cqi] py-[2.5cqi] hover:bg-white bg-ui-blue text-ui-white shadow-blue-btn-shdw hover:shadow-blue-outline-with-shdw hover:text-ui-blue" type="button">Get it on Chrome</a>
+                    <a id="hero-get-firefox-btn" class="button text-[clamp(0.8rem, 2.8vw, 1.1rem)] hover:bg-white px-7 py-4 bg-white-hero-button text-grey-800 shadow-grey-btn-shdw hover:shadow-grey-outline-with-shdw hover:text-grey-500" type="button">Get it on Firefox</a>
+                </div>
+            </div>
+            <div id="hero-right-side" class="@container flex items-center justify-start w-[50%] max-[43.75rem]:w-full max-[43.75rem]:order-1 max-[43.75rem]:mb-16">
+                <figure id="hero-image-container" class="flex relative w-full max-[43.75rem]:justify-center max-[43.75rem]:px-[7%] before:content-[''] before:absolute before:right-0 before:top-[10vw] before:w-[35vw] before:h-[24vw] before:bg-[#3E5DFE] before:rounded-bl-[29%] max-[43.75rem]:before:top-[4.838rem] max-[43.75rem]:before:w-[76.8vw] max-[43.75rem]:before:h-[47vw] max-[43.75rem]:before:max-h-60 max-[31.25rem]:before:top-[15.5vw]">
+                    <img class="select-none relative w-full max-[43.75rem]:w-full max-[43.75rem]:max-w-[27.736rem]" src="resources\illustration-hero.svg" alt="bookmark manager image">
+                </figure>
+            </div>
+        </section>
+        
+        <section id="page-2" class="flex flex-col items-center gap-12 mb-48 max-[43.75rem]:mb-32">
+            <div id="features-block" class="flex flex-col justify-center gap-6 w-[34.5%] leading-1.5 max-[53.125rem]:w-[60%] max-[28.125rem]:w-90% text-center">
+                <h2 class="text-grey-900 text-[1.98rem] font-[550] leading-[1.2] max-[43.75rem]:px-[9%] max-[43.75rem]:text-[clamp(1.5rem,5.3vw,2.7rem)]">Features</h2>
+                <p class="text-[1.2rem] leading-[1.6] text-grey-300">Our aim is to make it quick and easy for you to access your favourite websites. Your bookmarks sync between your devices so you can access them on the go.</p>
+            </div>
+
+            <div id="carousel" class="flex flex-col items-center gap-[4.1rem] w-full">
+                <nav id="carousel-nav" aria-label="Feature tabs" class="flex justify-center w-[50%] max-[43.75rem]:flex-col max-[43.75rem]:w-[80%] max-[43.75rem]:max-w-100">
+                    <button id="carousel-bookmarking-btn" class="active relative grow font-medium flex justify-around pb-[2.1rem] cursor-pointer border-b-[0.063rem] border-b-grey-200 text-grey-400 max-[43.75rem]:py-[1.6rem] hover:text-ui-red" type="button">Simple Bookmarking</button>
+                    <button id="carousel-searching-btn" class="relative grow font-medium flex justify-around pb-[2.1rem] cursor-pointer border-b-[0.063rem] border-b-grey-200 text-grey-400 max-[43.75rem]:py-[1.6rem] hover:text-ui-red" type="button">Speedy Searching</button>
+                    <button id="carousel-sharing-btn" class="relative grow font-medium flex justify-around pb-[2.1rem] cursor-pointer border-b-[0.063rem] border-b-grey-200 text-grey-400 max-[43.75rem]:py-[1.6rem] hover:text-ui-red" type="button">Easy Sharing</button>
+                </nav>
+                <div id="carousel-body" class="flex w-full max-[43.75rem]:flex-col max-[43.75rem]:gap-32">
+                    <figure id="carousel-left-side" class=" @container relative w-1/2 pl-[10vw] flex items-start max-[43.75rem]:w-full max-[43.75rem]:justify-center max-[43.75rem]:grow max-[43.75rem]:pr-[9%] before:content-[''] before:absolute before:top-[22cqi] before:left-0 before:h-[64cqi] before:w-[110cqi] before:[clip-path:polygon(0_0,96%_0,100%_100%,0%_100%)] before:bg-[#3E5DFE] before:rounded-ee-[12.5rem] max-[43.75rem]:before:h-[56cqi] max-[43.75rem]:before:w-[90cqi] max-[43.75rem]:before:bg-[#3E5DFE] max-[43.75rem]:before:rounded-ee-[12.5rem] max-[43.75rem]:before:rounded-se-[25rem] max-[43.75rem]:before:top-24">
+                        <img class="select-none relative w-[100cqi] aspect-[1.41/1.09] object-contain max-[43.75rem]:w-[90%] max-[43.75rem]:flex max-[43.75rem]:justify-center max-[43.75rem]:relative" id="carousel-image" src="resources\illustration-features-tab-1.svg" alt="the immage of the bookmark manager's interface">
+                    </figure>
+                    <div id="carousel-right-side" class="@container [container-name:carousel-right-side] flex justify-center pl-[8cqi] pr-[13cqi] max-[43.75rem]:w-full max-[43.75rem]:px-[9%] flex-col gap-6 w-[50%] max-[53.125rem]:w-[60%]">
+                        <h3 class="text-grey-900 text-[1.98rem] font-[550] leading-[1.2] max-[43.75rem]:px-[9%] max-[43.75rem]:text-[clamp(1.5rem,5.3vw,2.7rem)]" id="carousel-desc-title">Bookmark in one click</h3>
+                        <p class="text-[1.2rem] leading-[1.6] text-grey-300" id="carousel-desc-body">Organize your bookmarks however you like. Our simple drag-and-drop interfacegives you complete control over how you manage your favourite sites.</p>
+                        <div class="flex gap-4">
+                            <a class="button max-[43.75rem]:hidden hover:bg-white bg-ui-blue text-ui-white shadow-blue-btn-shdw hover:shadow-blue-outline-with-shdw hover:text-ui-blue px-7 py-4" id="carousel-button-right" type="button">More Info</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="page-3" class="flex flex-col items-center mb-60 max-[34.375rem]:mb-24">
+            <div id="extentions-description" class="mb-12.5 flex flex-col justify-center gap-6 w-[34.5%] leading-1.5 max-[53.125rem]:w-[60%] max-[28.125rem][:w-90%] text-center">
+                <h2 class="text-grey-900 text-[1.98rem] font-[550] leading-[1.2] max-[43.75rem]:px-[9%] max-[43.75rem]:text-[clamp(1.5rem,5.3vw,2.7rem)]">Download the extentions</h2>
+                <p class="text-[1.2rem] leading-[1.6] text-grey-300">We've got more browsers in the pipeline. Please do let us know if you've got a favourite you'd like to prioritize.</p>
+            </div>
+            <div id="extentions" class="flex items-start w-[60%] justify-between max-[50rem]:w-[80%] max-[34.375rem]:w-full max-[34.375rem]:px-[20%] max-[34.375rem]:flex-col max-[34.375rem]:gap-[3.8rem]">
+                <article id="chrome-extention" class="relative @container [container-name:extention-box] flex flex-col items-center w-[30%] rounded-[0.625rem] shadow-extension max-[34.375rem]:w-full">
+                    <div class="flex w-full flex-col items-center justify-center my-[clamp(0.875rem,12cqi,2.25rem)] text-center">
+                        <img class="select-none w-[40cqi] mb-8 max-[43.75rem]:mb-[14cqi]" src="resources\logo-chrome.svg" alt="chrome browser icon">
+                        <h3 class="font-bold text-grey-800 text-[clamp(1rem, 10cqi, 1.25rem)] mb-[0.7rem]">Add to Chrome</h3>
+                        <p class="font-medium text-grey-300 text-[clamp(0.75rem, 8cqi, 1rem)]">Minimum version 62</p>
+                    </div>
+                    <img src="resources\bg-dots.svg" alt="" aria-hidden="true">
+                    <a id="extention-chrome-button" href="#" class="m-[10cqi] @max-[11.938rem]:text-[8cqi] @max-[11.938rem]:py-[6cqi] @max-[11.938rem]:px-[15cqi] button hover:bg-white px-7 py-4 bg-ui-blue text-ui-white shadow-blue-btn-shdw hover:text-ui-blue hover:shadow-blue-outline-with-shdw text-[clamp(0.813rem,5cqi,0.938rem)]"><span>Add<span class="@max-[11.938rem]:hidden">&nbsp;& Install Extention</span></span></a>
+                </article>
+
+                <article id="firefox-extention" class="top-11 max-[34.375rem]:top-0 relative @container [container-name:extention-box] flex flex-col items-center w-[30%] rounded-[0.625rem] shadow-extension max-[34.375rem]:w-full">
+                    <div class="flex w-full flex-col items-center justify-center my-[clamp(0.875rem,12cqi,2.25rem)] text-center">
+                        <img class="select-none w-[40cqi] mb-8 max-[43.75rem]:mb-[14cqi]" src="resources\logo-firefox.svg" alt="fire fox browser icon">
+                        <h3 class="font-bold text-grey-800 text-[clamp(1rem, 10cqi, 1.25rem)] mb-[0.7rem]">Add to FireFox</h3>
+                        <p class="font-medium text-grey-300 text-[clamp(0.75rem, 8cqi, 1rem)]">Minimum version 46</p>
+                    </div>
+                    <img src="resources\bg-dots.svg" alt="" aria-hidden="true">
+                    <a id="extention-firefox-button" href="#" class="m-[10cqi] @max-[11.938rem]:text-[8cqi] @max-[11.938rem]:py-[6cqi] @max-[11.938rem]:px-[15cqi] button hover:bg-white px-7 py-4 bg-ui-blue text-ui-white shadow-blue-btn-shdw hover:shadow-blue-outline-with-shdw hover:text-ui-blue text-[clamp(0.813rem,5cqi,0.938rem)]"><span>Add<span class="@max-[11.938rem]:hidden">&nbsp;& Install Extention</span></span></a>
+                </article>
+
+                <article id="opera-extention" class="relative top-20 max-[34.375rem]:top-0 @container [container-name:extention-box] flex flex-col items-center w-[30%] rounded-[0.625rem] shadow-extension max-[34.375rem]:w-full">
+                    <div class="flex w-full flex-col items-center justify-center my-[clamp(0.875rem,12cqi,2.25rem)] text-center">
+                        <img class="select-none w-[40cqi] mb-8 max-[43.75rem]:mb-[14cqi]" src="resources\logo-opera.svg" alt="opera browser icon">
+                        <h3 class="font-bold text-grey-800 text-[clamp(1rem, 10cqi, 1.25rem)] mb-[0.7rem]">Add to Opera</h3>
+                        <p class="font-medium text-grey-300 text-[clamp(0.75rem, 8cqi, 1rem)]">Minimum version 46</p>
+                    </div>
+                    <img class="select-none" src="resources\bg-dots.svg" alt="" aria-hidden="true">
+                    <a id="extention-opera-button" href="#" class="m-[10cqi] @max-[11.938rem]:text-[8cqi] @max-[11.938rem]:py-[6cqi] @max-[11.938rem]:px-[15cqi] button hover:bg-white px-7 py-4 bg-ui-blue text-ui-white shadow-blue-btn-shdw hover:shadow-blue-outline-with-shdw hover:text-ui-blue text-[clamp(0.813rem,5cqi,0.938rem)]"><span>Add<span class="@max-[11.938rem]:hidden">&nbsp;& Install Extention</span></span></a>
+                </article>
+            </div>
+        </section>
+        <section id="page-4" class="flex flex-col items-center justify-center gap-[3.2rem] mb-40">
+            <div id="faq-desc" class="flex flex-col justify-center gap-6 w-[34.5%] leading-1.5 max-[53.125rem]:w-[60%] max-[28.125rem]:w-[90%] text-center">
+                <h2 class="text-grey-900 text-[1.98rem] font-[550] leading-[1.2] max-[43.75rem]:px-[9%] max-[43.75rem]:text-[clamp(1.5rem,5.3vw,2.7rem)]">Frequently Asked Questions</h2>
+                <p class="text-[1.2rem] leading-[1.6] text-grey-300">Here are some of our FAQs. If you have any other questions you'd like answered please feel free to email us.</p>
+            </div>
+            <div id="questions-block" class="flex flex-col w-[40%] @container [container-name:questions-block] max-[53.125rem]:w-[80%] max-[53.125rem]:px-[9%] max-[34.375rem]:w-full">
+                <details id="question-1" class="faq-question">
+                    <summary class="mr-auto flex items-center justify-between list-none text-[1.3rem] pt-[1.6rem] pb-[1.6rem] pr-[1.2rem] text-grey-900 cursor-pointer border-t-[0.125rem] border-grey-200 hover:text-ui-red">
+                        <span>What is Bookmark?</span>
+                        <img class="select-none" src="resources\icon-arrow.svg" alt="" aria-hidden="true">
+                    </summary>
+                    <div class="pb-5 text-grey-400 leading-loose text-[1.1rem]">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto ullam quam alias perferendis. Voluptate provident, placeat totam ut recusandae, tempore in fugit molestias alias mollitia sequi odio repudiandae culpa enim?
+                    </div>
+                </details>
+                <details id="question-2" class="faq-question">
+                    <summary class="hover:text-ui-red flex items-center justify-between list-none text-[1.3rem] pt-[1.6rem] pb-[1.6rem] pr-[1.2rem] text-grey-900 cursor-pointer border-t-[0.125rem] border-grey-200">
+                        <span class="text-[clamp(1rem, 3.2cqi, 1.8rem)]">How can I request a new browser?</span>
+                        <img class="select-none" src="resources\icon-arrow.svg" alt="" aria-hidden="true">
+                    </summary>
+                    <div class="pb-5 text-grey-400 leading-loose text-[1.1rem]">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto ullam quam alias perferendis. Voluptate provident, placeat totam ut recusandae, tempore in fugit molestias alias mollitia sequi odio repudiandae culpa enim?
+                    </div>
+                </details>
+                <details id="question-3" class="faq-question">
+                    <summary class="hover:text-ui-red flex items-center justify-between list-none text-[1.3rem] pt-[1.6rem] pb-[1.6rem] pr-[1.2rem] text-grey-900 cursor-pointer border-t-[0.125rem] border-grey-200">
+                        <span>Is there a mobile app?</span>
+                        <img class="select-none" src="resources\icon-arrow.svg" alt="" aria-hidden="true">
+                    </summary>
+                    <div class="pb-5 text-grey-400 leading-loose text-[1.1rem]">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto ullam quam alias perferendis. Voluptate provident, placeat totam ut recusandae, tempore in fugit molestias alias mollitia sequi odio repudiandae culpa enim?
+                    </div>
+                </details>
+                <details id="question-4" class="faq-question border-b-2 border-grey-200">
+                    <summary class="hover:text-ui-red flex items-center justify-between list-none text-[1.3rem] pt-[1.6rem] pb-[1.6rem] pr-[1.2rem] text-grey-900 cursor-pointer border-t-[0.125rem] border-grey-200">
+                        <span>What about other Chromium Browsers?</span>
+                        <img class="select-none" src="resources\icon-arrow.svg" alt="" aria-hidden="true">
+                    </summary>
+                    <div class="pb-5 text-grey-400 leading-loose text-[1.1rem]">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto ullam quam alias perferendis. Voluptate provident, placeat totam ut recusandae, tempore in fugit molestias alias mollitia sequi odio repudiandae culpa enim?
+                    </div>
+                </details>
+            </div>
+            <a id="faq-more-info-button" href="#" class="max-[43.75rem]:flex max-[43.75rem]:justify-center max-[43.75rem]:py-[3%] max-[43.75rem]:px-[6%] button hover:bg-white bg-ui-blue text-ui-white shadow-blue-btn-shdw hover:shadow-blue-outline-with-shdw hover:text-ui-blue px-7 py-4"> More Info</a>
+        </section>
+
+        <section>
+            <div id="call-to-action" class="flex justify-center w-full bg-ui-blue py-16 @container/call-to-action-block @max-[43.75rem]:call-to-action-block:py-16 @max[43.75rem]:call-to-action-block:px-[8vw]">
+                <div id="call-to-action-content" class="w-137.5 flex flex-col items-center gap-[clamp(1rem,5cqi,2rem)] @container/call-to-action-content">
+                    <p class="[font-variant:small-caps] tracking-[0.375rem] font-medium text-white text-[1.1rem] max-[43.75rem]/call-to-action-content:text-[clamp(0.42rem,3.17cqi,1.1rem)]"><strong>35,000+ ALREADY JOINED</strong></p>
+                    <h2 class="w-full text-[2.6rem] font-medium text-center text-white max-[43.75rem]/call-to-action-content:text-[clamp(1rem,7.5cqi,2.6rem)]">Stay up-to-date with what we're doing</h2>
+                    <form id="contact-form" method="post" class="w-full flex gap-5 justify-stretch max-[43.75rem]:flex-col max-[43.75rem]:w-[90%]">
+                        <div id="contact-input-block" class="flex flex-col grow relative">
+                            <input id="contact-input" type="email" class="contact-input bg-white relative w-full border-none rounded-button-radius px-3.5 py-2 pr-[2.188rem] grow text-[1.1rem] z-1 max[43.75rem]:text-[clamp(0.7rem,3vw,1rem)] max[43.75rem]:p-[clamp(0.594rem,4vw,1.1rem)] hover:outline-none hover:shadow-input invalid:shadow-invalid invalid:rounded-b-none placeholder:text-[1rem] placeholder:text-grey-400 max[43.75rem]:placeholder:text-[clamp(0.7rem,3vw,2rem)]" placeholder="Enter your email address">
+                            <p id="error-msg" class="hidden relative w-full italic bg-ui-red z-0 pl-5 pt-1 pb-2 rounded-b-button-radius text-white max-[43.75rem]:text-[clamp(0.7rem,3vw,1rem)]">Whoops, make sure it's an email</p>
+                            <img class="select-none invisible absolute top-3.5 right-3.5 z-3" id="error-icon" src="resources\icon-error.svg" alt="" aria-hidden="true">
+                        </div>
+                        <button id="contact-submit-button" class="button hover:bg-white hover:shadow-red-outline hover:text-ui-red bg-ui-red text-ui-white py-2.5 p-6 self-start max-[43.75rem]:self-stretch max-[43.75rem]:content-center max-[43.75rem]:text-[1rem] max-[43.75rem]:flex max-[43.75rem]:justify-center max-[43.75rem]:p-[0.6rem]" type="submit">Contact us</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <nav id="footer-nav" class="flex w-full bg-footer-nav py-8 px-[10vw] gap-[4vw] @container/footer-nav max-[43.75rem]:flex-col max-[43.75rem]:items-center max-[43.75rem]:gap-12">
+                <img class="select-none flex w-35 max-[43.75rem]:w-40 max-[43.75rem]:pt-6" id="footer-logo" src="resources\header-logo.png" alt="bookmark logo"/>
+                <div id="footer-button-group" class="flex justify-between grow max-[43.75rem]:flex-col max-[43.75rem]:gap-12">
+                    <div id="footer-nav-buttons" class="flex text-grey-200 gap-12 max-[43.75rem]:flex-col max-[43.75rem]:items-center max-[43.75rem]:gap-6 max-[43.75rem]:font-light">
+                        <a href="#" class="m-0 font-normal text-[clamp(0.75rem,4vw,1.1rem)] max-[43.75rem]:text-[1.3rem] button text-lg [font-variant:small-caps] text-grey-300 hover:text-ui-red" id="footer-nav-feature-btn">features</a>
+                        <a href="#" class="m-0 font-normal text-[clamp(0.75rem,4vw,1.1rem)] max-[43.75rem]:text-[1.3rem] button text-lg [font-variant:small-caps] text-grey-300 hover:text-ui-red" id="footer-nav-pricing-btn">pricing</a>
+                        <a href="#" class="m-0 font-normal text-[clamp(0.75rem,4vw,1.1rem)] max-[43.75rem]:text-[1.3rem] button text-lg [font-variant:small-caps] text-grey-300 hover:text-ui-red" id="footer-nav-contacts-btn">contact</a>
+                    </div>
+                    <div id="footer-social-media-buttons" class="flex items-center justify-between gap-[2cqi] max-[43.75rem]:justify-center max-[43.75rem]:gap-[9cqi] max-[43.75rem]:pb-[1.7rem]">
+                        <a class="flex items-center w-fit mx-[0.313rem] icon-highlight" href="#" aria-label="Facebook">
+                            <img class="select-none" src="resources/icon-facebook.svg" alt="" aria-hidden="true">
+                        </a>
+                        <a class="flex items-center w-fit mx-[0.313rem] icon-highlight" href="#" aria-label="Twitter">
+                            <img class="select-none" src="resources/icon-twitter.svg" alt="" aria-hidden="true">
+                        </a>
+                    </div>
+                </div>
+            </nav>    
+        </footer>
+    </main>
+    <script src="/src/js/burger-menu.js"></script>
+    <script src="/src/js/carousel.js"></script>
+</body>
+</html>
