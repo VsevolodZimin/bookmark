@@ -1,6 +1,0 @@
-
-#carousel-button-right {
-    @media(width <  43.75rem) {
-        display: none; 
-    }
-}

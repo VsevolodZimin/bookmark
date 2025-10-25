@@ -1,7 +1,0 @@
-#faq-more-info-button {
-    @media(width < 43.75rem) {
-        padding: 3% 6%;
-        display: flex;
-        justify-content: center;
-    }
-}
