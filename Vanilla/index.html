@@ -69,54 +69,6 @@
 </head>
 <body>
 
-    <!-- 
-    
-    This "design" in its current state is a crying shame: hard to read, hard to reason about, and almost impossible to maintain. 
-    On the good side of things though this this struggle has taught me a couple of valueable lessons:
-    
-    1) Avoid ID (#) selectors in styling AT ALL COSTS! Here's why:
-        a) Specificity wars: ID elements have the highest specificity (1,0,0)...with the single exception of !important which should not be used in production code 
-        b) Tight coupling: ID selectors couple the style with a specific element, making the style dependent on that element and hence - fragile (remove it from the markup and your css breaks)
-        c) Zero reusability: IDs are unique elements, so once you defined a selector with an ID - forget about reusing it elsewhere in the code
-        Take-away: I must  only use IDs for element identification (e.g. in JavaScript), not for styling, for that we have classes.
-
-        To demonstrate the importance of this point, I will intentionally leave one of the CSS bugs unresolved. Here's the problem: 
-        All buttons that change color to red on hover have "active-red:hover" applied. If you try to hover over top navigation butons, you will notice they remain unresponsive even with active-red:hover class applied. 
-        This happening because of specificity clash between "active-red:hover" (specificity (0,2,0) and "#top-nav-buttons .nav-button:not(:last-child)" (specificity (1,2,0)),
-        where the latter overrides the former. If you go to "styles/top-navigation/buttons/navigation-buttons.css" you will find the cuprit and a possible solution to the problem 
-        (i.e. inactive-grey class). 
-
-        
-    2) Don't abuse pseudo-elements.
-        b) PE hide the actual content making it harder to reason about HTML elements styles, debug layout issues or hand off the project to other developers who need to understand what renders where. 
-        Doing these blue background blocks with :before was a really bad idea: No aria tags, no screen readers, no JS calculations. 
-        Take-away: Only use PEs for small decorations (e,g, an emoji, an icon, a crown, a text label), don't use them as part of the layout!
-        
-    3) Use nesting sparingly.
-        a) Getting back on specificity topic, do not use nesting for DOM heirarchy:
-        
-        .header .nav .item { ... }      <=== This is bad on its own
-        .header {
-            .nav {
-                .item {
-                    ...                 <=== Even more difficult to read 
-                }
-            }
-        }
-
-        b) Use nesting for states and modifiers:
-
-        .header {
-            &:hover {...}
-            &:active {...}
-            &:has {...}
-        }
-
-        c) Keep nesting shallow, don't cpmplicate life of others and your future self
-        Take-away: Good nesting tells you this: "Here are possible VARIANTS of THIS element" (describes the element itself). Bad nesting tells you that: "Here are DESCENDENTS of this element" (describes other elements)
-
-    -->
-
     <header id="header">
         <nav id="mobile-menu">
             <div id="mobile-menu-header">
